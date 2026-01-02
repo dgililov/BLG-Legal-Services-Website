@@ -172,26 +172,46 @@ class LanguageManager {
   redirectToLanguagePage(langCode) {
     // Get current page path
     const currentPath = window.location.pathname;
-    const currentPage = currentPath.split('/').pop() || 'index.html';
     
-    // Determine target URL based on language
+    // Extract the page structure (handling subdirectories)
+    let pagePath = '';
+    
+    // Check if we're on a homepage
+    if (currentPath === '/' || currentPath.endsWith('/index.html') || currentPath.endsWith('/')) {
+      pagePath = 'index.html';
+    }
+    // Check if we're in pages directory
+    else if (currentPath.includes('/pages/')) {
+      // Extract everything after /pages/
+      const pagesIndex = currentPath.indexOf('/pages/');
+      pagePath = 'pages' + currentPath.substring(pagesIndex + 6);
+    }
+    // Handle language-specific paths
+    else if (currentPath.match(/\/(es|fr|ru|he|ka|fa|uz)\//)) {
+      // Extract path after language code
+      const match = currentPath.match(/\/(es|fr|ru|he|ka|fa|uz)\/(.*)/);
+      if (match && match[2]) {
+        pagePath = match[2];
+      } else {
+        pagePath = 'index.html';
+      }
+    }
+    else {
+      // Fallback: get the last part
+      pagePath = currentPath.split('/').filter(p => p).join('/') || 'index.html';
+    }
+    
+    // Build target URL based on language
     if (langCode === 'en') {
       // Redirect to English (root)
-      if (currentPath.includes('/es/') || currentPath.includes('/fr/') || 
-          currentPath.includes('/ru/') || currentPath.includes('/he/') || 
-          currentPath.includes('/ka/') || currentPath.includes('/fa/') || 
-          currentPath.includes('/uz/')) {
-        // From language subdir to root
-        window.location.href = '/' + currentPage;
-      }
-      // Already on English page, just translate in place
-      else {
-        this.currentLang = langCode;
-        this.translatePage();
+      if (pagePath === 'index.html') {
+        window.location.href = '/index.html';
+      } else {
+        window.location.href = '/' + pagePath;
       }
     } else {
       // Redirect to language-specific directory
-      window.location.href = `/${langCode}/${currentPage}`;
+      window.location.href = `/${langCode}/${pagePath}`;
     }
   }
 
