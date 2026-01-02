@@ -1,10 +1,25 @@
-# Logo Placeholder
+# ⚠️ ACTION REQUIRED: Add BLG Logo
 
-## Add Your BLG Legal Services Logo Here
+## Your BLG Logo is Ready to Add!
 
-**Required:**
-- Save your logo as `logo.png` in this directory
-- Recommended size: 400x100 pixels (or 800x200 for retina displays)
+I can see your beautiful BLG circular logo (blue gradient with white "BLG" text), but I cannot directly save uploaded images to the filesystem.
+
+**Please complete this step manually:**
+
+### Quick Instructions
+
+1. **Save the BLG logo image you just uploaded**
+2. **Name it**: `logo.png`
+3. **Save to**: This directory (`/Users/user01/BLG-Legal-Services-Website/assets/images/`)
+4. **Then run**:
+   ```bash
+   cd /Users/user01/BLG-Legal-Services-Website
+   git add assets/images/logo.png
+   git commit -m "Add BLG logo image"
+   ```
+
+**Recommended:**
+- Size: 400x100 pixels (or 800x200 for retina displays)
 - Format: PNG with transparent background preferred
 - Alternative: You can also use JPG or SVG
 
