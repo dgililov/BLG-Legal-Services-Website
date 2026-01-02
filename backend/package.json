@@ -1,0 +1,27 @@
+{
+  "name": "blg-legal-reviews-api",
+  "version": "1.0.0",
+  "description": "Backend API server for fetching Google reviews for BLG Legal Services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "google-reviews",
+    "places-api",
+    "legal-services"
+  ],
+  "author": "BLG Legal Services",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
+
