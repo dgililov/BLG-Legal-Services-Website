@@ -147,8 +147,12 @@ class FormHandler {
 
     // Form submission
     this.form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      this.handleSubmit();
+      // Only validate, then allow native submission
+      if (!this.validator.validateForm()) {
+        e.preventDefault();
+        this.showMessage('Please correct the errors above.', 'error');
+      }
+      // If valid, allow form to submit naturally (for FormSubmit)
     });
   }
 
@@ -159,12 +163,12 @@ class FormHandler {
       return;
     }
 
-    // Check reCAPTCHA (if implemented)
-    const recaptchaResponse = this.form.querySelector('.g-recaptcha-response');
-    if (recaptchaResponse && !recaptchaResponse.value) {
-      this.showMessage('Please complete the reCAPTCHA verification.', 'error');
-      return;
-    }
+    // Check reCAPTCHA (if implemented) - Currently disabled
+    // const recaptchaResponse = this.form.querySelector('.g-recaptcha-response');
+    // if (recaptchaResponse && !recaptchaResponse.value) {
+    //   this.showMessage('Please complete the reCAPTCHA verification.', 'error');
+    //   return;
+    // }
 
     // Disable submit button
     this.setSubmitting(true);

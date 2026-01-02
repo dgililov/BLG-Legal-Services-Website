@@ -57,7 +57,7 @@
           </li>
           <li><a href="reviews.html">Client Reviews</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="qna.html">F.A.Q</a></li>
+          <li><a href="qna.html">Q&A</a></li>
           <li><a href="contact.html" class="btn btn-primary active" style="padding: 0.5rem 1rem;">Contact Us</a></li>
           <li class="lang-selector">
             <select id="lang-selector" aria-label="Select language"></select>
@@ -160,7 +160,14 @@
             <h2>Send Us a Message</h2>
             <p style="margin-bottom: 2rem;">Fill out the form below and we'll get back to you within 24 hours.</p>
             
-            <form class="contact-form" id="contact-form" method="POST" action="#">
+            <form class="contact-form" id="contact-form" method="POST" action="https://formsubmit.co/law@blglegalservices.com">
+              <!-- FormSubmit Configuration -->
+              <input type="hidden" name="_subject" value="New Contact Form Submission - BLG Legal Services">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none">
+              <input type="hidden" name="_next" value="https://blglegalservices.com/pages/contact.html?success=true">
+              
               <div class="form-group">
                 <label for="name">Full Name <span class="required">*</span></label>
                 <input 
@@ -250,10 +257,10 @@
                 ></textarea>
               </div>
 
-              <!-- reCAPTCHA -->
-              <div class="form-group">
+              <!-- reCAPTCHA - Temporarily disabled, add site key when ready -->
+              <!-- <div class="form-group">
                 <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
-              </div>
+              </div> -->
 
               <div class="form-group">
                 <p style="font-size: 0.875rem; color: var(--text-secondary);">
@@ -330,6 +337,29 @@
   <script src="../assets/js/lang.js"></script>
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/form.js"></script>
+  <script>
+    // Check for success message from FormSubmit redirect
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      // Show success message
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'form-message form-message-success';
+      messageDiv.setAttribute('role', 'status');
+      messageDiv.innerHTML = '<strong>✅ Message Sent Successfully!</strong><br>Thank you for contacting BLG Legal Services. We will respond to your inquiry within 24 hours.';
+      messageDiv.style.cssText = 'position: fixed; top: 100px; left: 50%; transform: translateX(-50%); z-index: 10000; max-width: 600px; padding: 1.5rem; background: #10b981; color: white; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);';
+      document.body.appendChild(messageDiv);
+      
+      // Remove success parameter from URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+      
+      // Auto-remove after 8 seconds
+      setTimeout(() => {
+        messageDiv.style.opacity = '0';
+        messageDiv.style.transition = 'opacity 0.5s';
+        setTimeout(() => messageDiv.remove(), 500);
+      }, 8000);
+    }
+  </script>
 </body>
 </html>
 
