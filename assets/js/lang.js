@@ -1,8 +1,23 @@
 /**
  * BLG Legal Services - Language Switcher
  * Author: BLG Legal Services
- * Version: 1.0
+ * Version: 2.0 - Fixed for GitHub Pages
  */
+
+// ============================================
+// Base Path Configuration (for GitHub Pages)
+// ============================================
+const getBasePath = () => {
+  const path = window.location.pathname;
+  // Check if we're on GitHub Pages (contains repository name)
+  if (path.includes('/BLG-Legal-Services-Website')) {
+    return '/BLG-Legal-Services-Website';
+  }
+  // Local development or custom domain
+  return '';
+};
+
+const BASE_PATH = getBasePath();
 
 // ============================================
 // Language Configuration
@@ -75,6 +90,7 @@ class LanguageManager {
   constructor() {
     // Always default to English unless we're on a language-specific page
     this.currentLang = this.detectPageLanguage();
+    this.basePath = BASE_PATH;
     this.init();
   }
 
@@ -173,46 +189,56 @@ class LanguageManager {
     // Get current page path
     const currentPath = window.location.pathname;
     
+    // Remove base path if present to get relative path
+    let relativePath = currentPath;
+    if (this.basePath && currentPath.startsWith(this.basePath)) {
+      relativePath = currentPath.substring(this.basePath.length);
+    }
+    
     // Extract the page structure (handling subdirectories)
     let pagePath = '';
     
     // Check if we're on a homepage
-    if (currentPath === '/' || currentPath.endsWith('/index.html') || currentPath.endsWith('/')) {
+    if (relativePath === '/' || relativePath === '' || relativePath.endsWith('/index.html') || relativePath === '/index.html') {
       pagePath = 'index.html';
     }
-    // Check if we're in pages directory
-    else if (currentPath.includes('/pages/')) {
-      // Extract everything after /pages/
-      const pagesIndex = currentPath.indexOf('/pages/');
-      pagePath = 'pages' + currentPath.substring(pagesIndex + 6);
-    }
-    // Handle language-specific paths
-    else if (currentPath.match(/\/(es|fr|ru|he|ka|fa|uz)\//)) {
+    // Handle language-specific paths (already in a language directory)
+    else if (relativePath.match(/^\/(es|fr|ru|he|ka|fa|uz)\//)) {
       // Extract path after language code
-      const match = currentPath.match(/\/(es|fr|ru|he|ka|fa|uz)\/(.*)/);
+      const match = relativePath.match(/^\/(es|fr|ru|he|ka|fa|uz)\/(.*)/);
       if (match && match[2]) {
         pagePath = match[2];
       } else {
         pagePath = 'index.html';
       }
     }
+    // Check if we're in pages directory (English version)
+    else if (relativePath.includes('/pages/')) {
+      // Extract everything from /pages/ onwards
+      const pagesIndex = relativePath.indexOf('/pages/');
+      pagePath = 'pages' + relativePath.substring(pagesIndex + 6);
+    }
     else {
-      // Fallback: get the last part
-      pagePath = currentPath.split('/').filter(p => p).join('/') || 'index.html';
+      // Fallback: use the path as-is (without leading slash)
+      pagePath = relativePath.replace(/^\//, '') || 'index.html';
     }
     
     // Build target URL based on language
+    let targetUrl;
     if (langCode === 'en') {
       // Redirect to English (root)
       if (pagePath === 'index.html') {
-        window.location.href = '/index.html';
+        targetUrl = this.basePath + '/index.html';
       } else {
-        window.location.href = '/' + pagePath;
+        targetUrl = this.basePath + '/' + pagePath;
       }
     } else {
       // Redirect to language-specific directory
-      window.location.href = `/${langCode}/${pagePath}`;
+      targetUrl = `${this.basePath}/${langCode}/${pagePath}`;
     }
+    
+    console.log(`Redirecting to: ${targetUrl}`);
+    window.location.href = targetUrl;
   }
 
   translatePage() {
@@ -222,7 +248,7 @@ class LanguageManager {
     // 3. Or redirect to language-specific URL (e.g., /es/index.html)
     
     const elements = document.querySelectorAll('[data-i18n]');
-    const translations = TRANSLATIONS[this.currentLang] || TRANSLATIONS['en'];
+    const translations = typeof TRANSLATIONS !== 'undefined' ? (TRANSLATIONS[this.currentLang] || TRANSLATIONS['en']) : {};
     
     elements.forEach(element => {
       const key = element.getAttribute('data-i18n');
@@ -239,9 +265,6 @@ class LanguageManager {
         element.setAttribute('placeholder', translations[key]);
       }
     });
-    
-    // For a complete multilingual site, you might redirect:
-    // window.location.href = `/${this.currentLang}/index.html`;
   }
 
   getStoredLanguage() {
@@ -268,6 +291,10 @@ class LanguageManager {
   getSupportedLanguages() {
     return Object.values(LANGUAGES);
   }
+  
+  getBasePath() {
+    return this.basePath;
+  }
 }
 
 // ============================================
@@ -280,6 +307,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Make globally accessible
   window.LanguageManager = languageManager;
+  
+  console.log(`Language Manager initialized. Base path: "${BASE_PATH}"`);
 });
 
 // ============================================
@@ -295,11 +324,6 @@ document.addEventListener('languageChanged', function(e) {
       'event_label': e.detail.language
     });
   }
-  
-  // You can add other actions here, like:
-  // - Reloading dynamic content
-  // - Updating form labels
-  // - Changing date/number formats
 });
 
 // ============================================
@@ -307,7 +331,7 @@ document.addEventListener('languageChanged', function(e) {
 // ============================================
 function t(key, langCode = null) {
   const lang = langCode || (languageManager ? languageManager.currentLang : 'en');
-  const translations = TRANSLATIONS[lang] || TRANSLATIONS['en'];
+  const translations = typeof TRANSLATIONS !== 'undefined' ? (TRANSLATIONS[lang] || TRANSLATIONS['en']) : {};
   return translations[key] || key;
 }
 
@@ -321,8 +345,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     LanguageManager,
     LANGUAGES,
-    TRANSLATIONS,
-    t
+    t,
+    BASE_PATH
   };
 }
-
