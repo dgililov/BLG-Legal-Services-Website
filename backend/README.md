@@ -1,278 +1,301 @@
-# BLG Legal Services - Reviews API Backend
+# BLG Legal Services - API Server
 
-This backend server fetches reviews from Google Places API and Facebook Graph API and serves them to the frontend securely.
+A Node.js/Express backend server that provides API endpoints for:
+- **Google Places API** - Fetching business reviews and ratings
+- **Facebook Graph API** - Page data, followers, and recommendations  
+- **Contact Form** - Email notifications for form submissions
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-1. **Node.js** (v14 or higher) - Download from https://nodejs.org/
-2. **Google Places API Key** - Get from Google Cloud Console
-3. **Facebook Access Token** - Get from Facebook Developers
-4. **Place IDs** - Your Google Business and Facebook Page IDs
-
-### Installation Steps
+### 1. Install Dependencies
 
 ```bash
-# 1. Navigate to backend directory
 cd backend
-
-# 2. Install dependencies
 npm install
+```
 
-# 3. Create .env file
+### 2. Configure Environment Variables
+
+```bash
 cp env.example .env
+```
 
-# 4. Edit .env and add your API keys (see below)
-nano .env  # or use any text editor
+Edit `.env` with your API keys (see [API Setup Guide](#-api-setup-guide) below).
 
-# 5. Start the server
+### 3. Start the Server
+
+**Development mode (with auto-reload):**
+```bash
+npm run dev
+```
+
+**Production mode:**
+```bash
 npm start
 ```
 
-## 🔑 API Keys Setup
+The server will start on `http://localhost:3001`
 
-### Google Places API
+## 📍 API Endpoints
 
-#### Step 1: Create Google Cloud Project
-1. Go to: https://console.cloud.google.com/
-2. Create a new project or select existing one
-3. Enable **Google Places API**
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | Health check and configuration status |
+| `/api/status` | GET | Detailed API status and available endpoints |
+| `/api/reviews` | GET | Google Places reviews |
+| `/api/facebook-reviews` | GET | Facebook page data and ratings |
+| `/api/all-reviews` | GET | Combined data from both platforms |
+| `/api/contact` | POST | Contact form submission |
 
-#### Step 2: Create API Key
-1. Go to: https://console.cloud.google.com/apis/credentials
-2. Click **Create Credentials** → **API Key**
-3. Copy your API key
+### Example Requests
 
-#### Step 3: Get Place ID
-1. Go to: https://developers.google.com/maps/documentation/places/web-service/place-id
-2. Search for: "BLG Legal Services Brooklyn NY"
-3. Copy the Place ID (starts with something like: `ChIJ...`)
-
-### Facebook Graph API
-
-#### Step 1: Create Facebook App
-1. Go to: https://developers.facebook.com/apps/
-2. Click **Create App**
-3. Select **Business** type
-4. Fill in app details
-
-#### Step 2: Get Page Access Token
-1. Go to: https://developers.facebook.com/tools/explorer/
-2. Select your app
-3. Click **Get Token** → **Get Page Access Token**
-4. Select your Facebook page
-5. Grant permissions: `pages_read_engagement`, `pages_show_list`
-6. Copy the generated token
-
-**Important:** For production, you should get a long-lived token:
-```bash
-curl -G \
-  -d "grant_type=fb_exchange_token" \
-  -d "client_id={app-id}" \
-  -d "client_secret={app-secret}" \
-  -d "fb_exchange_token={short-lived-token}" \
-  https://graph.facebook.com/v18.0/oauth/access_token
-```
-
-## ⚙️ Configuration
-
-Edit your `.env` file:
-
-```env
-# Google Places API
-GOOGLE_PLACES_API_KEY=AIzaSy...your_key_here
-GOOGLE_PLACE_ID=ChIJ...your_place_id_here
-
-# Facebook Graph API
-FACEBOOK_PAGE_ID=blglegalservices
-FACEBOOK_ACCESS_TOKEN=EAABs...your_token_here
-
-# Server Settings
-PORT=3001
-NODE_ENV=development
-```
-
-## 📡 API Endpoints
-
-Once the server is running on `http://localhost:3001`:
-
-### Health Check
-```bash
-GET http://localhost:3001/health
-```
-Returns server status and configuration state.
-
-### Google Reviews
-```bash
-GET http://localhost:3001/api/reviews
-```
-Returns Google Business reviews and ratings.
-
-Response:
-```json
-{
-  "success": true,
-  "data": {
-    "name": "BLG Legal Services",
-    "rating": 4.9,
-    "user_ratings_total": 45,
-    "reviews": [...]
-  }
-}
-```
-
-### Facebook Reviews
-```bash
-GET http://localhost:3001/api/facebook-reviews
-```
-Returns Facebook page ratings and data.
-
-Response:
-```json
-{
-  "success": true,
-  "data": {
-    "page": {
-      "name": "BLG Legal Services",
-      "overall_star_rating": 4.8,
-      "rating_count": 32,
-      "fan_count": 1250
-    },
-    "ratings": [...]
-  }
-}
-```
-
-### All Reviews (Combined)
-```bash
-GET http://localhost:3001/api/all-reviews
-```
-Returns reviews from both Google and Facebook.
-
-## 🧪 Testing
-
-### Test Health Check
+**Health Check:**
 ```bash
 curl http://localhost:3001/health
 ```
 
-### Test Google Reviews
+**Get Google Reviews:**
 ```bash
 curl http://localhost:3001/api/reviews
 ```
 
-### Test Facebook Reviews
-```bash
-curl http://localhost:3001/api/facebook-reviews
-```
-
-### Test Combined Reviews
+**Get All Reviews:**
 ```bash
 curl http://localhost:3001/api/all-reviews
 ```
 
-## 🔒 Security Notes
+**Submit Contact Form:**
+```bash
+curl -X POST http://localhost:3001/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phone": "555-1234",
+    "service": "immigration",
+    "message": "I need help with my visa application."
+  }'
+```
 
-1. **Never commit `.env` file** - It contains sensitive API keys
-2. **API Key Restrictions** - Restrict your Google API key to your domain in production
-3. **CORS** - Update `ALLOWED_ORIGINS` for production deployment
-4. **Access Tokens** - Use long-lived tokens for production
-5. **Rate Limiting** - Consider adding rate limiting for production
-
-## 📝 Costs
+## 🔑 API Setup Guide
 
 ### Google Places API
-- **Free Tier**: 28,500 requests per month
-- **After Free Tier**: $17 per 1,000 requests
-- **Estimated Cost**: Free for most small websites
+
+1. **Create a Google Cloud Project:**
+   - Go to [Google Cloud Console](https://console.cloud.google.com/)
+   - Create a new project or select an existing one
+
+2. **Enable Required APIs:**
+   - Navigate to "APIs & Services" → "Library"
+   - Enable "Places API" and "Places API (New)"
+
+3. **Create API Credentials:**
+   - Go to "APIs & Services" → "Credentials"
+   - Click "Create Credentials" → "API Key"
+   - Copy the API key to your `.env` file as `GOOGLE_PLACES_API_KEY`
+
+4. **Find Your Place ID:**
+   - Go to [Place ID Finder](https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder)
+   - Search for "BLG Legal Services"
+   - Copy the Place ID to your `.env` file as `GOOGLE_PLACE_ID`
+
+5. **Secure Your API Key (Recommended):**
+   - In the Credentials page, click on your API key
+   - Add restrictions:
+     - Application restrictions: IP addresses (your server IP)
+     - API restrictions: Places API only
 
 ### Facebook Graph API
-- **Free**: No costs for Graph API calls
+
+1. **Create a Facebook App:**
+   - Go to [Facebook Developers](https://developers.facebook.com/)
+   - Click "My Apps" → "Create App"
+   - Choose "Business" type
+   - Complete the app setup
+
+2. **Add Facebook Login Product:**
+   - In your app dashboard, click "Add Product"
+   - Add "Facebook Login"
+
+3. **Connect Your Facebook Page:**
+   - Go to "Settings" → "Advanced"
+   - Add your Facebook Page to the app
+
+4. **Generate Page Access Token:**
+   - Go to [Graph API Explorer](https://developers.facebook.com/tools/explorer/)
+   - Select your app
+   - Click "Get User Access Token"
+   - Select permissions:
+     - `pages_read_engagement`
+     - `pages_read_user_content`
+   - Click "Generate Access Token"
+   - Copy the token to your `.env` file as `FACEBOOK_ACCESS_TOKEN`
+
+5. **Convert to Long-Lived Token (Recommended):**
+   ```bash
+   curl -X GET "https://graph.facebook.com/v18.0/oauth/access_token?grant_type=fb_exchange_token&client_id=YOUR_APP_ID&client_secret=YOUR_APP_SECRET&fb_exchange_token=YOUR_SHORT_LIVED_TOKEN"
+   ```
+
+### Email Configuration (Gmail)
+
+1. **Enable 2-Factor Authentication:**
+   - Go to [Google Account Security](https://myaccount.google.com/security)
+   - Enable 2-Step Verification
+
+2. **Generate App Password:**
+   - Go to [App Passwords](https://myaccount.google.com/apppasswords)
+   - Select "Mail" and "Other (Custom name)"
+   - Enter "BLG Website"
+   - Copy the 16-character password
+
+3. **Configure `.env`:**
+   ```env
+   EMAIL_HOST=smtp.gmail.com
+   EMAIL_PORT=587
+   EMAIL_USER=your_email@gmail.com
+   EMAIL_PASS=xxxx xxxx xxxx xxxx  # App password (no spaces)
+   EMAIL_TO=law@blglegalservices.com
+   ```
+
+## ⚙️ Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `PORT` | No | Server port (default: 3001) |
+| `NODE_ENV` | No | Environment: development/production |
+| `ALLOWED_ORIGINS` | No | Comma-separated CORS origins |
+| `GOOGLE_PLACES_API_KEY` | Yes* | Google Places API key |
+| `GOOGLE_PLACE_ID` | Yes* | Google Business Place ID |
+| `FACEBOOK_PAGE_ID` | Yes* | Facebook Page ID or username |
+| `FACEBOOK_ACCESS_TOKEN` | Yes* | Facebook Page Access Token |
+| `EMAIL_HOST` | No | SMTP server hostname |
+| `EMAIL_PORT` | No | SMTP server port |
+| `EMAIL_USER` | No | SMTP username/email |
+| `EMAIL_PASS` | No | SMTP password/app password |
+| `EMAIL_TO` | No | Recipient email for contact forms |
+
+*Required for the respective feature to work
+
+## 🔒 Security Features
+
+- **Helmet.js** - Security headers
+- **Rate Limiting** - 100 requests/15min (general), 5/hour (contact form)
+- **CORS** - Configurable origin whitelist
+- **Input Sanitization** - XSS prevention
+- **Compression** - Response compression
+
+## 📊 Rate Limits
+
+| Endpoint | Limit |
+|----------|-------|
+| General | 100 requests per 15 minutes |
+| Contact Form | 5 submissions per hour |
 
 ## 🐛 Troubleshooting
 
 ### "API key not configured"
-- Check that `.env` file exists in `backend/` directory
-- Verify `GOOGLE_PLACES_API_KEY` is set correctly
-- Restart the server after editing `.env`
+- Ensure `.env` file exists in the `backend/` directory
+- Check that API keys are not placeholder values
 
-### "Place ID not configured"
-- Make sure you've set `GOOGLE_PLACE_ID` in `.env`
-- Verify the Place ID is correct (starts with `ChIJ`)
+### "Place ID not found"
+- Verify the Place ID at [Place ID Finder](https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder)
+- Ensure the business is listed on Google Maps
 
-### "Facebook access token not configured"
-- Check that `FACEBOOK_ACCESS_TOKEN` is set in `.env`
-- Verify the token has the required permissions
-- Regenerate token if expired
+### "Facebook API Error"
+- Check that the access token is valid and not expired
+- Ensure the token has required permissions
+- Verify the Page ID is correct
 
-### CORS Errors
-- Make sure the frontend is running on `http://localhost:8000`
-- Check `ALLOWED_ORIGINS` in `.env`
-- Restart server after changes
+### "CORS Error"
+- Add your frontend URL to `ALLOWED_ORIGINS` in `.env`
+- Restart the server after changing `.env`
 
-### Reviews Not Loading
-1. Check that backend server is running: `http://localhost:3001/health`
-2. Verify API keys are configured correctly
-3. Check browser console for error messages
-4. Try testing endpoints directly with curl
+### "Email not sending"
+- Verify Gmail App Password is correct (no spaces)
+- Ensure 2FA is enabled on your Google account
+- Check spam folder for test emails
 
-## 🚢 Deployment
+## 📝 Logging
 
-### For Production Deployment:
+The server logs:
+- All incoming requests (development mode: detailed, production: combined format)
+- API errors with stack traces
+- Contact form submissions
+- Email send status
 
-1. **Environment Variables**
-   - Set all `.env` variables on your hosting platform
-   - Use long-lived Facebook access token
+## 🔄 Response Format
 
-2. **CORS**
-   - Update `ALLOWED_ORIGINS` to your production domain
+All API responses follow this format:
 
-3. **API Key Security**
-   - Restrict Google API key to your domain
-   - Enable HTTP referrer restrictions
+**Success:**
+```json
+{
+  "success": true,
+  "data": { ... },
+  "timestamp": "2026-01-02T12:00:00.000Z"
+}
+```
 
-4. **Hosting Options**
-   - **Heroku**: Easy deployment, free tier available
-   - **DigitalOcean**: More control, starting at $5/month
-   - **AWS/Google Cloud**: Scalable, pay-per-use
-   - **Vercel/Netlify**: Serverless functions
+**Error:**
+```json
+{
+  "success": false,
+  "error": "Error Type",
+  "message": "Human-readable error message"
+}
+```
 
-5. **Update Frontend**
-   - Change `REVIEWS_API_URL` in `assets/js/reviews.js`
-   - Update to your production API URL
+## 📦 Dependencies
 
-## 📚 Dependencies
+| Package | Version | Purpose |
+|---------|---------|---------|
+| express | ^4.18.2 | Web framework |
+| axios | ^1.6.2 | HTTP client |
+| cors | ^2.8.5 | CORS middleware |
+| dotenv | ^16.3.1 | Environment variables |
+| helmet | ^7.1.0 | Security headers |
+| compression | ^1.7.4 | Response compression |
+| morgan | ^1.10.0 | Request logging |
+| express-rate-limit | ^7.1.5 | Rate limiting |
+| nodemailer | ^6.9.7 | Email sending |
 
-- **express**: Web server framework
-- **cors**: Cross-origin resource sharing
-- **dotenv**: Environment variable management
-- **axios**: HTTP client for API requests
+## 🚀 Deployment
 
-## 💡 Tips
+### Docker
 
-1. **Cache Reviews**: Consider caching API responses to reduce API calls
-2. **Error Handling**: The server provides detailed error messages
-3. **Monitoring**: Monitor API usage in Google Cloud Console
-4. **Refresh Token**: Facebook tokens expire; set up auto-refresh
-5. **Backup Plan**: Keep the direct links as fallback
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+EXPOSE 3001
+CMD ["npm", "start"]
+```
 
-## 🆘 Support
+### PM2 (Production)
 
-If you need help:
-1. Check the error messages in server console
-2. Review the troubleshooting section
-3. Test endpoints individually
-4. Verify API keys are active and have correct permissions
+```bash
+npm install -g pm2
+pm2 start server.js --name "blg-api"
+pm2 save
+pm2 startup
+```
 
-## 📄 License
+### Environment Variables in Production
 
-MIT License - See LICENSE file for details
+Never commit your `.env` file. Use environment variables from your hosting platform:
+- Heroku: Config Vars
+- AWS: Parameter Store / Secrets Manager
+- Vercel: Environment Variables
+- DigitalOcean: App Platform Environment
 
-## 👥 Author
+## 📞 Support
 
-BLG Legal Services
-- Website: https://blglegalservices.com
-- Email: law@blglegalservices.com
-- Phone: 646-948-9555
+- **Technical Issues:** [GitHub Issues](https://github.com/dgililov/BLG-Legal-Services-Website/issues)
+- **Email:** law@blglegalservices.com
 
+---
+
+**Version:** 2.0.0  
+**Last Updated:** January 2, 2026
