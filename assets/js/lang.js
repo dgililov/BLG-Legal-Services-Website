@@ -73,8 +73,23 @@ const LANGUAGES = {
 // ============================================
 class LanguageManager {
   constructor() {
-    this.currentLang = this.getStoredLanguage() || 'en';
+    // Always default to English unless we're on a language-specific page
+    this.currentLang = this.detectPageLanguage();
     this.init();
+  }
+
+  detectPageLanguage() {
+    // Detect language from URL path
+    const path = window.location.pathname;
+    if (path.includes('/es/')) return 'es';
+    if (path.includes('/fr/')) return 'fr';
+    if (path.includes('/ru/')) return 'ru';
+    if (path.includes('/he/')) return 'he';
+    if (path.includes('/ka/')) return 'ka';
+    if (path.includes('/fa/')) return 'fa';
+    if (path.includes('/uz/')) return 'uz';
+    // Default to English
+    return 'en';
   }
 
   init() {
@@ -128,29 +143,56 @@ class LanguageManager {
 
     const language = LANGUAGES[langCode];
     
+    // Store preference
+    this.storeLanguage(langCode);
+    
+    // If language change and reload is true, redirect to language-specific page
+    if (reload && langCode !== this.currentLang) {
+      this.redirectToLanguagePage(langCode);
+      return;
+    }
+    
     // Update HTML lang attribute
     document.documentElement.setAttribute('lang', langCode);
     
     // Update text direction for RTL languages
     document.documentElement.setAttribute('dir', language.dir);
     
-    // Store preference
-    this.storeLanguage(langCode);
-    
     // Update current language
     this.currentLang = langCode;
-    
-    // Update page content
-    if (reload) {
-      this.translatePage();
-    }
     
     // Trigger custom event
     document.dispatchEvent(new CustomEvent('languageChanged', {
       detail: { language: langCode }
     }));
     
-    console.log(`Language changed to: ${language.name}`);
+    console.log(`Language set to: ${language.name}`);
+  }
+
+  redirectToLanguagePage(langCode) {
+    // Get current page path
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop() || 'index.html';
+    
+    // Determine target URL based on language
+    if (langCode === 'en') {
+      // Redirect to English (root)
+      if (currentPath.includes('/es/') || currentPath.includes('/fr/') || 
+          currentPath.includes('/ru/') || currentPath.includes('/he/') || 
+          currentPath.includes('/ka/') || currentPath.includes('/fa/') || 
+          currentPath.includes('/uz/')) {
+        // From language subdir to root
+        window.location.href = '/' + currentPage;
+      }
+      // Already on English page, just translate in place
+      else {
+        this.currentLang = langCode;
+        this.translatePage();
+      }
+    } else {
+      // Redirect to language-specific directory
+      window.location.href = `/${langCode}/${currentPage}`;
+    }
   }
 
   translatePage() {
