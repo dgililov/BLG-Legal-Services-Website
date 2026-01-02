@@ -7,6 +7,17 @@
   <meta name="keywords" content="immigration lawyer, trademark attorney, business formation, immigration services, visa attorney, green card lawyer, citizenship lawyer, asylum lawyer, New York immigration attorney">
   <meta name="author" content="BLG Legal Services">
   
+  <!-- Language Alternates -->
+  <link rel="alternate" hreflang="en" href="index.html" />
+  <link rel="alternate" hreflang="es" href="es/index.html" />
+  <link rel="alternate" hreflang="fr" href="fr/index.html" />
+  <link rel="alternate" hreflang="ru" href="ru/index.html" />
+  <link rel="alternate" hreflang="he" href="he/index.html" />
+  <link rel="alternate" hreflang="ka" href="ka/index.html" />
+  <link rel="alternate" hreflang="fa" href="fa/index.html" />
+  <link rel="alternate" hreflang="uz" href="uz/index.html" />
+  <link rel="alternate" hreflang="x-default" href="index.html" />
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://blglegalservices.com/">
@@ -97,8 +108,15 @@
           <li><a href="pages/qna.html" data-i18n="nav.qna">Q&A</a></li>
           <li><a href="pages/contact.html" class="btn btn-primary" style="padding: 0.5rem 1rem;" data-i18n="nav.contact">Contact Us</a></li>
           <li class="lang-selector">
-            <select id="lang-selector" aria-label="Select language">
-              <!-- Populated by JavaScript -->
+            <select id="lang-selector" aria-label="Select language" onchange="if(this.value) window.location.href=this.value">
+              <option value="index.html" selected>🇺🇸 English</option>
+              <option value="es/index.html">🇪🇸 Español</option>
+              <option value="fr/index.html">🇫🇷 Français</option>
+              <option value="ru/index.html">🇷🇺 Русский</option>
+              <option value="he/index.html">🇮🇱 עברית</option>
+              <option value="ka/index.html">🇬🇪 ქართული</option>
+              <option value="fa/index.html">🇮🇷 فارسی</option>
+              <option value="uz/index.html">🇺🇿 O'zbekcha</option>
             </select>
           </li>
         </ul>
