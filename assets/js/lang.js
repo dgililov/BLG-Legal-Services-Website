@@ -59,40 +59,14 @@ const LANGUAGES = {
 };
 
 // ============================================
-// Translation Strings (Demo)
+// Translation Strings
 // ============================================
-// In production, load these from JSON files
-const TRANSLATIONS = {
-  en: {
-    'nav.home': 'Home',
-    'nav.fees': 'Attorney Fees',
-    'nav.practice-areas': 'Practice Areas',
-    'nav.reviews': 'Client Reviews',
-    'nav.blog': 'Blog',
-    'nav.qna': 'Q&A',
-    'nav.contact': 'Contact',
-    'hero.title': 'Expert Immigration Law Services',
-    'hero.subtitle': 'Navigating your path to U.S. residency with ease',
-    'cta.consultation': 'Get Your Free Consultation',
-    'cta.learn-more': 'Learn More',
-    'footer.rights': '© 2025 BLG Legal Services - All Rights Reserved.'
-  },
-  es: {
-    'nav.home': 'Inicio',
-    'nav.fees': 'Tarifas de Abogado',
-    'nav.practice-areas': 'Áreas de Práctica',
-    'nav.reviews': 'Reseñas de Clientes',
-    'nav.blog': 'Blog',
-    'nav.qna': 'Preguntas y Respuestas',
-    'nav.contact': 'Contacto',
-    'hero.title': 'Servicios Expertos de Ley de Inmigración',
-    'hero.subtitle': 'Navegando su camino hacia la residencia en EE.UU. con facilidad',
-    'cta.consultation': 'Obtenga Su Consulta Gratuita',
-    'cta.learn-more': 'Aprende Más',
-    'footer.rights': '© 2025 BLG Legal Services - Todos los Derechos Reservados.'
-  },
-  // Add other language translations as needed
-};
+// Translations are loaded from translations.js
+// This file must be included BEFORE lang.js in your HTML
+// <script src="assets/js/translations.js"></script>
+// <script src="assets/js/lang.js"></script>
+
+// Note: TRANSLATIONS object is defined in translations.js
 
 // ============================================
 // Language Manager Class
