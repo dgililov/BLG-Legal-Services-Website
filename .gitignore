@@ -1,0 +1,72 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (if using npm for any tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
+# WordPress (if implemented later)
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backups/
+
+# CMS specific
+admin/config.php
+config/database.php
+
+# Sensitive files
+*.key
+*.pem
+*.cert
+private/
+secrets/
+
+# Backup files
+backup/
+*.sql
+*.zip
+*.tar.gz
+
+# Cache
+.cache/
+*.cache
+
+# Analytics and tracking (keep these in repo but document)
+# google-analytics.js
+

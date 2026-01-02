@@ -1,0 +1,458 @@
+/* ============================================
+   BLG Legal Services - Responsive Styles
+   Author: BLG Legal Services
+   Version: 1.0
+   ============================================ */
+
+/* ============================================
+   Tablet Styles (768px - 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+  
+  h2 {
+    font-size: 1.875rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   Mobile Styles (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  /* Typography */
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  /* Header and Navigation */
+  .header-top .container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .header-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .header-contact a {
+    margin-left: 0;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+    z-index: 1002;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--background-white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    box-shadow: var(--shadow-xl);
+    transition: right var(--transition-base);
+    overflow-y: auto;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .nav-menu a {
+    width: 100%;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .nav-menu .dropdown-menu {
+    position: static;
+    display: none;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    padding-left: var(--spacing-md);
+    background-color: var(--background-light);
+  }
+  
+  .nav-menu .dropdown.active .dropdown-menu {
+    display: block;
+  }
+  
+  .lang-selector {
+    margin-top: var(--spacing-md);
+    width: 100%;
+  }
+  
+  .lang-selector select {
+    width: 100%;
+  }
+  
+  /* Overlay for mobile menu */
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+  
+  .mobile-overlay.active {
+    display: block;
+  }
+  
+  /* Sections */
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+  }
+  
+  /* Services Grid */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .service-card {
+    padding: var(--spacing-lg);
+  }
+  
+  /* Pricing Tables */
+  .pricing-table {
+    font-size: 0.875rem;
+  }
+  
+  .pricing-table th,
+  .pricing-table td {
+    padding: var(--spacing-sm);
+  }
+  
+  /* Make pricing tables scrollable on mobile */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .pricing-table {
+    min-width: 600px;
+  }
+  
+  /* Contact Grid */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  /* Why Choose Us */
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .why-item {
+    padding: var(--spacing-md);
+  }
+  
+  /* Blog Grid */
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  /* Footer */
+  .footer {
+    padding: var(--spacing-lg) 0 var(--spacing-sm);
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  /* Buttons */
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .btn-large {
+    padding: var(--spacing-md);
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   Small Mobile Styles (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+  
+  .hero p {
+    font-size: 0.9375rem;
+  }
+  
+  .service-card {
+    padding: var(--spacing-md);
+  }
+  
+  .service-icon {
+    font-size: 2.5rem;
+  }
+  
+  .pricing-disclaimer {
+    font-size: 0.875rem;
+    padding: var(--spacing-sm);
+  }
+  
+  .empty-state {
+    padding: var(--spacing-lg);
+  }
+  
+  .empty-state-icon {
+    font-size: 3rem;
+  }
+}
+
+/* ============================================
+   Landscape Mobile (max-height: 500px)
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding: var(--spacing-md) 0;
+  }
+  
+  .hero h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .hero p {
+    font-size: 0.9375rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .nav-menu {
+    padding: var(--spacing-md);
+  }
+}
+
+/* ============================================
+   Touch Device Optimizations
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase tap targets for touch devices */
+  a,
+  button,
+  .btn,
+  .form-control,
+  .accordion-header {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .service-card:hover {
+    transform: none;
+  }
+  
+  .blog-card:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Print Optimizations for Mobile
+   ============================================ */
+@media print {
+  .mobile-menu-toggle,
+  .mobile-overlay,
+  .nav-menu {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   Accessibility - High Contrast Mode
+   ============================================ */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #000080;
+    --secondary-color: #0000ff;
+    --text-primary: #000000;
+    --border-color: #000000;
+  }
+  
+  .btn {
+    border-width: 3px;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ============================================
+   Accessibility - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .service-card:hover,
+  .blog-card:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Dark Mode Support (Future Enhancement)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  /* 
+  Uncomment when implementing dark mode:
+  
+  :root {
+    --primary-color: #3b82f6;
+    --text-primary: #f3f4f6;
+    --text-secondary: #d1d5db;
+    --background-white: #1f2937;
+    --background-light: #111827;
+    --border-color: #374151;
+  }
+  */
+}
+
+/* ============================================
+   RTL Support for Hebrew and Farsi
+   ============================================ */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="rtl"] .nav-menu {
+  left: -100%;
+  right: auto;
+}
+
+[dir="rtl"] .nav-menu.active {
+  left: 0;
+}
+
+[dir="rtl"] .service-card ul li {
+  padding-left: 0;
+  padding-right: var(--spacing-md);
+}
+
+[dir="rtl"] .service-card ul li::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .contact-item-icon {
+  margin-right: 0;
+  margin-left: var(--spacing-sm);
+}
+
+[dir="rtl"] .header-contact a {
+  margin-left: 0;
+  margin-right: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .nav-menu {
+    left: -100%;
+    right: auto;
+  }
+  
+  [dir="rtl"] .nav-menu.active {
+    left: 0;
+    right: auto;
+  }
+  
+  [dir="rtl"] .header-contact a {
+    margin-right: 0;
+  }
+}
+
