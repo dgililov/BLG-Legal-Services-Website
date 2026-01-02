@@ -69,7 +69,7 @@ A comprehensive web-based platform serving as the primary digital presence for a
 - Provide transparent pricing for all services
 - Support 8 languages for diverse client base
 - Enable client communication and consultation scheduling
-- Publish educational content (blog and Q&A)
+- Publish educational content (blog and F.A.Q)
 - Showcase client testimonials and reviews
 - Optimize for search engines and accessibility
 
@@ -112,7 +112,7 @@ A comprehensive web-based platform serving as the primary digital presence for a
   - PRACTICE AREAS (with detailed sub-sections)
   - WHAT OUR CLIENTS SAY (reviews/testimonials)
   - BLOG
-  - Q&A
+  - F.A.Q (Frequently Asked Questions)
   - Contact/Consultation Scheduling
 - **Acceptance Criteria**: All menu items accessible within 2 clicks; menu responsive on all devices
 

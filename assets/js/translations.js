@@ -11,7 +11,7 @@ const TRANSLATIONS = {
     'nav.practice': 'Practice Areas',
     'nav.reviews': 'Client Reviews',
     'nav.blog': 'Blog',
-    'nav.qna': 'Q&A',
+    'nav.qna': 'F.A.Q',
     'nav.contact': 'Contact Us',
     
     // Hero
@@ -78,7 +78,7 @@ const TRANSLATIONS = {
     'nav.practice': 'Áreas de Práctica',
     'nav.reviews': 'Reseñas de Clientes',
     'nav.blog': 'Blog',
-    'nav.qna': 'Preguntas y Respuestas',
+    'nav.qna': 'P.M.F (Preguntas Más Frecuentes)',
     'nav.contact': 'Contáctenos',
     
     // Hero
@@ -145,7 +145,7 @@ const TRANSLATIONS = {
     'nav.practice': 'Domaines de Pratique',
     'nav.reviews': 'Avis Clients',
     'nav.blog': 'Blog',
-    'nav.qna': 'Questions-Réponses',
+    'nav.qna': 'F.A.Q',
     'nav.contact': 'Nous Contacter',
     
     // Hero
@@ -212,7 +212,7 @@ const TRANSLATIONS = {
     'nav.practice': 'Области Практики',
     'nav.reviews': 'Отзывы Клиентов',
     'nav.blog': 'Блог',
-    'nav.qna': 'Вопросы и Ответы',
+    'nav.qna': 'Ч.З.В (Часто Задаваемые Вопросы)',
     'nav.contact': 'Связаться с Нами',
     
     // Герой
@@ -279,7 +279,7 @@ const TRANSLATIONS = {
     'nav.practice': 'תחומי עיסוק',
     'nav.reviews': 'חוות דעת לקוחות',
     'nav.blog': 'בלוג',
-    'nav.qna': 'שאלות ותשובות',
+    'nav.qna': 'שאלות נפוצות (F.A.Q)',
     'nav.contact': 'צור קשר',
     
     // גיבור
@@ -346,7 +346,7 @@ const TRANSLATIONS = {
     'nav.practice': 'პრაქტიკის სფეროები',
     'nav.reviews': 'კლიენტების შეფასებები',
     'nav.blog': 'ბლოგი',
-    'nav.qna': 'კითხვა-პასუხი',
+    'nav.qna': 'ხშირად დასმული კითხვები (F.A.Q)',
     'nav.contact': 'დაგვიკავშირდით',
     
     // გმირი
@@ -413,7 +413,7 @@ const TRANSLATIONS = {
     'nav.practice': 'حوزه‌های تخصصی',
     'nav.reviews': 'نظرات مشتریان',
     'nav.blog': 'وبلاگ',
-    'nav.qna': 'پرسش و پاسخ',
+    'nav.qna': 'سوالات متداول (F.A.Q)',
     'nav.contact': 'تماس با ما',
     
     // قهرمان
@@ -480,7 +480,7 @@ const TRANSLATIONS = {
     'nav.practice': 'Amaliyot sohalari',
     'nav.reviews': 'Mijozlar fikrlari',
     'nav.blog': 'Blog',
-    'nav.qna': 'Savol-Javob',
+    'nav.qna': 'Ko\'p So\'raladigan Savollar (F.A.Q)',
     'nav.contact': 'Biz bilan bog\'laning',
     
     // Qahramon
