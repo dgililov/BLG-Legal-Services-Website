@@ -3,11 +3,256 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0;url=../index.html">
-  <title>BLG Legal Services</title>
+  <meta name="description" content="BLG Legal Services - იურიდიული სერვისები იმიგრაციის, სავაჭრო ნიშნების რეგისტრაციისა და ბიზნეს ფორმირების დარგში">
+  <title>BLG Legal Services - იმიგრაცია, სავაჭრო ნიშნები და ბიზნეს ფორმირება</title>
+  
+  <link rel="alternate" hreflang="en" href="../index.html" />
+  <link rel="alternate" hreflang="es" href="../es/index.html" />
+  <link rel="alternate" hreflang="fr" href="../fr/index.html" />
+  <link rel="alternate" hreflang="ru" href="../ru/index.html" />
+  <link rel="alternate" hreflang="he" href="../he/index.html" />
+  <link rel="alternate" hreflang="ka" href="index.html" />
+  <link rel="alternate" hreflang="fa" href="../fa/index.html" />
+  <link rel="alternate" hreflang="uz" href="../uz/index.html" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 </head>
 <body>
-  <p>Redirecting to English version...</p>
-  <p><a href="../index.html">Click here if not redirected</a></p>
+  <a href="#main-content" class="skip-link" style="position: absolute; left: -9999px;">გადასვლა მთავარ შინაარსზე</a>
+
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <div>📧 law@blglegalservices.com</div>
+        <div class="header-contact">
+          <a href="tel:+16469489555">📞 646-948-9555</a>
+          <span>🕒 ორშ-შაბ 9:00-17:00</span>
+        </div>
+      </div>
+    </div>
+    
+    <nav class="nav-main">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="../assets/images/logo.png" alt="BLG Legal Services Logo" width="200" height="50">
+          </a>
+        </div>
+        
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="მენიუს გადართვა">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-menu">
+          <li><a href="index.html">მთავარი</a></li>
+          <li><a href="../pages/fees.html">ადვოკატის ტარიფები</a></li>
+          <li><a href="../pages/practice-areas/family-immigration.html">პრაქტიკის სფეროები</a></li>
+          <li><a href="../pages/reviews.html">კლიენტების მიმოხილვები</a></li>
+          <li><a href="../pages/blog.html">ბლოგი</a></li>
+          <li><a href="../pages/qna.html">ხშირად დასმული კითხვები</a></li>
+          <li><a href="../pages/contact.html" class="btn btn-primary" style="padding: 0.5rem 1rem;">დაგვიკავშირდით</a></li>
+          <li class="lang-selector">
+            <select id="lang-selector" onchange="window.location.href=this.value">
+              <option value="../index.html">🇺🇸 English</option>
+              <option value="../es/index.html">🇪🇸 Español</option>
+              <option value="../fr/index.html">🇫🇷 Français</option>
+              <option value="../ru/index.html">🇷🇺 Русский</option>
+              <option value="../he/index.html">🇮🇱 עברית</option>
+              <option value="index.html" selected>🇬🇪 ქართული</option>
+              <option value="../fa/index.html">🇮🇷 فارسی</option>
+              <option value="../uz/index.html">🇺🇿 O'zbekcha</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="container">
+        <h1>ექსპერტი იურიდიული სერვისები იმიგრაციის დარგში</h1>
+        <p>თქვენი გზის მიმართვა აშშ-ში მცხოვრებლობისკენ სიადვილით</p>
+        <div class="hero-cta">
+          <a href="../pages/contact.html" class="btn btn-primary btn-large">მიიღეთ უფასო კონსულტაცია</a>
+          <a href="#services" class="btn btn-outline btn-large">გაიგეთ მეტი</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="text-center">
+          <h2>ჩვენი მისია</h2>
+          <p style="max-width: 800px; margin: 0 auto; font-size: 1.125rem; color: var(--text-secondary);">
+            BLG Legal Services-ში ჩვენი მისია მარტივია — <strong>კარების გახსნა და ოცნებების დაცვა</strong>. ჩვენ ვეხმარებით ინდივიდებს, ოჯახებსა და ბიზნესებს აშშ-ის იმიგრაციის, ბიზნეს ფორმირებისა და სავაჭრო ნიშნების რეგისტრაციის რთულ პროცესებში, პატიოსნებით, თანაგრძნობით და სიზუსტით.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="text-center">
+          <h2>ვინ ვართ ჩვენ</h2>
+          <p style="max-width: 900px; margin: 0 auto; font-size: 1.125rem;">
+            BLG Legal Services არის <strong>იურიდიული ფირმა</strong> ნიუ-იორკის მეტრო ზონაში, რომელიც ემსახურება კლიენტებს ქვეყნის მასშტაბით და საზღვარგარეთ აშშ-ის იმიგრაციისა და სავაჭრო ნიშნების სამართლის ყველა სფეროში. ჩვენ აერთიანებთ სიღრმისეულ იურიდიულ ცოდნას პერსონალიზებულ მიდგომასთან.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>ჩვენი სერვისები</h2>
+          <p style="font-size: 1.125rem; color: var(--text-secondary);">ყოვლისმომცველი სამართლებრივი გადაწყვეტები თქვენი იმიგრაციის, სავაჭრო ნიშნებისა და ბიზნეს საჭიროებებისთვის</p>
+        </div>
+        
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-passport"></i></div>
+            <h3>იმიგრაციის პრაქტიკა</h3>
+            <p>პერსონალიზებული, სტრატეგიული და შედეგზე ორიენტირებული იმიგრაციის წარმომადგენლობა.</p>
+            <a href="../pages/practice-areas/family-immigration.html" class="btn btn-primary" style="margin-top: 1rem;">გაიგეთ მეტი</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-trademark"></i></div>
+            <h3>სავაჭრო ნიშნების რეგისტრაცია</h3>
+            <p>თქვენი ბრენდისა და შემოქმედებითი ნამუშევრების დაცვა ქვეყნის მასშტაბით.</p>
+            <a href="../pages/practice-areas/trademark.html" class="btn btn-primary" style="margin-top: 1rem;">გაიგეთ მეტი</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-building"></i></div>
+            <h3>ბიზნეს ფორმირება</h3>
+            <p>დაიწყეთ თქვენი ბიზნესი მყარ იურიდიულ საფუძველზე.</p>
+            <a href="../pages/practice-areas/family-immigration.html" class="btn btn-primary" style="margin-top: 1rem;">გაიგეთ მეტი</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>რატომ აირჩიოთ BLG Legal Services</h2>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-award"></i></div>
+            <h3>გამოცდილება და პატიოსნება</h3>
+            <p>წლების განმავლობაში მხოლოდ აშშ-ის იმიგრაციისა და სავაჭრო ნიშნების სამართალში</p>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
+            <h3>ქვეყნის მასშტაბის წარმომადგენლობა</h3>
+            <p>ჩვენ ვეხმარებით კლიენტებს ყველა 50 შტატში და საზღვარგარეთ უსაფრთხო ვირტუალური კონსულტაციების საშუალებით</p>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+            <h3>პერსონალიზებული სტრატეგია</h3>
+            <p>ყოველი საქმე იღებს ინდივიდუალურ ყურადღებას და მორგებულ იურიდიულ გეგმას</p>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-language"></i></div>
+            <h3>მრავალენოვანი მხარდაჭერა</h3>
+            <p>ისაუბრეთ კომფორტულად თქვენს მშობლიურ ენაზე (მხარდაჭერა 8 ენაზე)</p>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>დამტკიცებული შედეგები</h3>
+            <p>ასობით წარმატებული პეტიციები, შუამდგომლობები და დამტკიცებები</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>ენები, რომლებზეც ვლაპარაკობთ</h2>
+          <p style="font-size: 1.125rem;">ჩვენი მრავალენოვანი გუნდი გთავაზობთ სერვისებს:</p>
+        </div>
+        
+        <div class="languages-grid">
+          <div class="language-item"><span class="flag">🇺🇸</span><span>English</span></div>
+          <div class="language-item"><span class="flag">🇫🇷</span><span>Français</span></div>
+          <div class="language-item"><span class="flag">🇪🇸</span><span>Español</span></div>
+          <div class="language-item"><span class="flag">🇷🇺</span><span>Русский</span></div>
+          <div class="language-item"><span class="flag">🇮🇱</span><span>עברית</span></div>
+          <div class="language-item"><span class="flag">🇬🇪</span><span>ქართული</span></div>
+          <div class="language-item"><span class="flag">🇮🇷</span><span>فارسی</span></div>
+          <div class="language-item"><span class="flag">🇺🇿</span><span>O'zbekcha</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container text-center">
+        <h2>მზად ხართ დაიწყოთ თქვენი იმიგრაციის მოგზაურობა?</h2>
+        <p style="font-size: 1.125rem; margin: 1.5rem 0;">გადადგით შემდეგი ნაბიჯი თქვენი მომავლისკენ შეერთებულ შტატებში. ჩვენი გამოცდილი გუნდი მზადაა განიხილოს თქვენი სიტუაცია და შექმნას მკაფიო გზა წინსვლისკენ.</p>
+        <div class="cta-buttons">
+          <a href="../pages/contact.html" class="btn btn-primary btn-large">დაგვიკავშირდით</a>
+          <a href="../pages/fees.html" class="btn btn-outline btn-large">იხილეთ ტარიფები</a>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 1.125rem;"><strong>კონსულტაციის ღირებულება:</strong> $250 ერთ საათამდე კონსულტაციისთვის</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>BLG Legal Services</h4>
+          <p>კარების გახსნა და ოცნებების დაცვა.</p>
+          <p style="margin-top: 1rem;">
+            <strong>მისამართი:</strong><br>
+            315 Madison Avenue, 3rd Floor<br>
+            New York, NY 10017, USA
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>სწრაფი ბმულები</h4>
+          <ul>
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="../pages/fees.html">ტარიფები</a></li>
+            <li><a href="../pages/contact.html">კონტაქტი</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>დაგვიკავშირდით</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> <a href="tel:+16469489555">646-948-9555</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:law@blglegalservices.com">law@blglegalservices.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 BLG Legal Services - ყველა უფლება დაცულია.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="back-to-top" style="position: fixed; bottom: 2rem; right: 2rem; background-color: var(--secondary-color); color: white; width: 50px; height: 50px; border-radius: 50%; display: none; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); z-index: 999;">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
