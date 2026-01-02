@@ -17,8 +17,23 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <style>
+    /* Hebrew RTL adjustments */
+    body[dir="rtl"] .pricing-table th,
+    body[dir="rtl"] .pricing-table td {
+      text-align: right;
+    }
+    body[dir="rtl"] .fee-amount {
+      direction: ltr;
+      display: inline-block;
+    }
+    body[dir="rtl"] input[type="text"] {
+      direction: rtl;
+      text-align: right;
+    }
+  </style>
 </head>
-<body>
+<body dir="rtl">
   <!-- Header -->
   <header class="header">
     <div class="header-top">
@@ -95,7 +110,7 @@
           <input 
             type="text" 
             id="pricing-search" 
-            placeholder="Search services..." 
+            placeholder="חיפוש שירותים..." 
             class="form-control" 
             style="max-width: 500px; margin: 0 auto;"
           >
@@ -121,35 +136,35 @@
                     <td><span class="service-name">H-1B (עובד זמני)</span></td>
                     <td>
                       <span class="fee-amount">$5,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">H-4 (בן/בת זוג של H-1B petition)</span></td>
                     <td>
                       <span class="fee-amount">$1,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">L-1 (העברה בין-חברתית)</span></td>
                     <td>
                       <span class="fee-amount">$6,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">O-1 (כישרון מיוחד)</span></td>
                     <td>
                       <span class="fee-amount">$6,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">R-1 (ויזה דתית)</span></td>
                     <td>
                       <span class="fee-amount">$5,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
@@ -173,7 +188,7 @@
                     <td><span class="service-name">E-2 (ויזת משקיע)</span></td>
                     <td>
                       <span class="fee-amount">$8,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
@@ -197,7 +212,7 @@
                     <td><span class="service-name">B-1/B-2 / הארכת שהייה (Business / Travel visa)</span></td>
                     <td>
                       <span class="fee-amount">$750</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
@@ -221,21 +236,21 @@
                     <td><span class="service-name">EB-1 (Green Card for חוקרים / פרופסורים מצטיינים)</span></td>
                     <td>
                       <span class="fee-amount">$9,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">EB-2 (תואר מתקדם או יכולת יוצאת דופן) / EB-2 ויתור לטובת האינטרס הלאומי (NIW)</span></td>
                     <td>
                       <span class="fee-amount">$9,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">EB-3 (עובדים מיומנים)</span></td>
                     <td>
                       <span class="fee-amount">$6,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
@@ -259,7 +274,7 @@
                     <td><span class="service-name">K-1 (ויזת ארוס/ארוסה)</span></td>
                     <td>
                       <span class="fee-amount">$4,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
@@ -283,28 +298,28 @@
                     <td><span class="service-name">Green Card through marriage to U.S. Citizen</span></td>
                     <td>
                       <span class="fee-amount">$4,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">U.S. Citizen files Green Card petition for קרוב משפחה ישיר (parent / child)</span></td>
                     <td>
                       <span class="fee-amount">$4,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">U.S. Citizen files Green Card petition for sibling (brother / sister)</span></td>
                     <td>
                       <span class="fee-amount">$4,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">I-751 – Petition to remove conditions for residence</span></td>
                     <td>
                       <span class="fee-amount">$3,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
@@ -328,7 +343,7 @@
                     <td><span class="service-name">EB-5 (Qualified ויזת משקיע)</span></td>
                     <td>
                       <span class="fee-amount">$25,000</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
@@ -352,7 +367,7 @@
                     <td><span class="service-name">N-400 (Naturalization Application)</span></td>
                     <td>
                       <span class="fee-amount">$1,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
@@ -376,7 +391,7 @@
                     <td><span class="service-name">F-1 / J-1 (Student Visa)</span></td>
                     <td>
                       <span class="fee-amount">$2,500</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
@@ -400,14 +415,14 @@
                     <td><span class="service-name">I-589, Affirmative Asylum Application with USCIS</span></td>
                     <td>
                       <span class="fee-amount">$10,000</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                   <tr>
                     <td><span class="service-name">Asylum case, while in Immigration Court removal proceedings</span></td>
                     <td>
                       <span class="fee-amount">$10,000</span><br>
-                      <span class="derivative-fee">+ $550 for each derivative applicant</span>
+                      <span class="derivative-fee">+ $550 עבור כל מבקש נגזר</span>
                     </td>
                   </tr>
                 </tbody>
