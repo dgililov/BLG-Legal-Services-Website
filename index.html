@@ -277,16 +277,26 @@
         <div class="text-center">
           <h2>Languages We Speak</h2>
           <p class="mb-4">Our multilingual team offers services in:</p>
-          <ul class="languages-list" style="justify-content: center;">
-            <li>🇺🇸 English</li>
-            <li>🇫🇷 French</li>
-            <li>🇪🇸 Spanish</li>
-            <li>🇷🇺 Russian</li>
-            <li>🇮🇱 Hebrew</li>
-            <li>🇬🇪 Georgian</li>
-            <li>🇮🇷 Farsi</li>
-            <li>🇺🇿 Uzbek</li>
-          </ul>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Click any language to view the site in that language</p>
+          <div class="language-switcher-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; max-width: 600px; margin: 0 auto;">
+            <a href="#" data-lang="en" class="lang-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border: 2px solid var(--border-color); border-radius: 50px; text-decoration: none; color: var(--text-primary); font-weight: 500; transition: all 0.2s; cursor: pointer;">🇺🇸 English</a>
+            <a href="#" data-lang="es" class="lang-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border: 2px solid var(--border-color); border-radius: 50px; text-decoration: none; color: var(--text-primary); font-weight: 500; transition: all 0.2s; cursor: pointer;">🇪🇸 Español</a>
+            <a href="#" data-lang="fr" class="lang-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border: 2px solid var(--border-color); border-radius: 50px; text-decoration: none; color: var(--text-primary); font-weight: 500; transition: all 0.2s; cursor: pointer;">🇫🇷 Français</a>
+            <a href="#" data-lang="ru" class="lang-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border: 2px solid var(--border-color); border-radius: 50px; text-decoration: none; color: var(--text-primary); font-weight: 500; transition: all 0.2s; cursor: pointer;">🇷🇺 Русский</a>
+            <a href="#" data-lang="he" class="lang-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border: 2px solid var(--border-color); border-radius: 50px; text-decoration: none; color: var(--text-primary); font-weight: 500; transition: all 0.2s; cursor: pointer;">🇮🇱 עברית</a>
+            <a href="#" data-lang="ka" class="lang-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border: 2px solid var(--border-color); border-radius: 50px; text-decoration: none; color: var(--text-primary); font-weight: 500; transition: all 0.2s; cursor: pointer;">🇬🇪 ქართული</a>
+            <a href="#" data-lang="fa" class="lang-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border: 2px solid var(--border-color); border-radius: 50px; text-decoration: none; color: var(--text-primary); font-weight: 500; transition: all 0.2s; cursor: pointer;">🇮🇷 فارسی</a>
+            <a href="#" data-lang="uz" class="lang-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border: 2px solid var(--border-color); border-radius: 50px; text-decoration: none; color: var(--text-primary); font-weight: 500; transition: all 0.2s; cursor: pointer;">🇺🇿 O'zbek</a>
+          </div>
+          <style>
+            .lang-btn:hover {
+              background: var(--primary-color) !important;
+              color: white !important;
+              border-color: var(--primary-color) !important;
+              transform: translateY(-2px);
+              box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            }
+          </style>
         </div>
       </div>
     </section>
@@ -359,8 +369,17 @@
             <li><i class="fas fa-envelope"></i> <a href="mailto:law@blglegalservices.com">law@blglegalservices.com</a></li>
             <li><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 5:00 PM</li>
           </ul>
-          <h4 style="margin-top: 1.5rem;">Languages</h4>
-          <p style="font-size: 0.875rem;">English, French, Spanish, Russian, Hebrew, Georgian, Farsi, Uzbek</p>
+          <h4 style="margin-top: 1.5rem;">Quick Language Switch</h4>
+          <div class="footer-languages">
+            <a href="#" data-lang="en" class="lang-btn">🇺🇸</a>
+            <a href="#" data-lang="es" class="lang-btn">🇪🇸</a>
+            <a href="#" data-lang="fr" class="lang-btn">🇫🇷</a>
+            <a href="#" data-lang="ru" class="lang-btn">🇷🇺</a>
+            <a href="#" data-lang="he" class="lang-btn">🇮🇱</a>
+            <a href="#" data-lang="ka" class="lang-btn">🇬🇪</a>
+            <a href="#" data-lang="fa" class="lang-btn">🇮🇷</a>
+            <a href="#" data-lang="uz" class="lang-btn">🇺🇿</a>
+          </div>
         </div>
       </div>
 
