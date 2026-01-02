@@ -103,23 +103,47 @@
               </div>
             </div>
             
-            <!-- Google Reviews Iframe Embed -->
+            <!-- Google Reviews Widget -->
             <div style="position: relative; width: 100%; overflow: hidden; border-radius: var(--radius-md);">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830894612!2d-74.11976373946229!3d40.69766374873776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25090129c363d%3A0x40c6a5770d25022b!2sStatue%20of%20Liberty!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
-                width="100%" 
-                height="450" 
-                style="border:0; border-radius: var(--radius-md);" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-              <div style="margin-top: 1.5rem; padding: 1.5rem; background-color: var(--background-light); border-radius: var(--radius-md); text-align: center;">
-                <p style="font-size: 1rem; color: var(--text-secondary); margin: 0;">
-                  <i class="fas fa-info-circle"></i> 
-                  <strong>Note:</strong> To display your specific Google Business reviews here, please provide your Google Business Place ID. 
-                  Visit the <a href="https://share.google/s40cWxPEXkNv8HFld" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Google Reviews link</a> to see all current reviews.
-                </p>
+              <!-- Direct Link to Google Business Profile -->
+              <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 3rem 2rem; border-radius: var(--radius-md); text-align: center; border: 2px solid #e2e8f0;">
+                <div style="max-width: 500px; margin: 0 auto;">
+                  <div style="font-size: 3rem; margin-bottom: 1rem;">📍</div>
+                  <h3 style="margin-bottom: 1rem; color: var(--primary-color);">BLG Legal Services</h3>
+                  <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    See what our clients are saying on Google! Read authentic reviews from people we've helped with their immigration and legal needs.
+                  </p>
+                  
+                  <!-- Google Business Profile Link -->
+                  <a href="https://www.google.com/search?kgmid=/g/11fllfxt6l" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     style="display: inline-block; padding: 1rem 2rem; background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); color: white; text-decoration: none; border-radius: var(--radius-md); font-weight: 600; font-size: 1.125rem; box-shadow: var(--shadow-md); transition: transform 0.2s;">
+                    <i class="fab fa-google"></i> View All Google Reviews
+                  </a>
+                  
+                  <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                      <strong>Review Platforms:</strong>
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                      <a href="https://www.google.com/search?kgmid=/g/11fllfxt6l" target="_blank" style="padding: 0.75rem 1.5rem; background: white; border: 2px solid #4285F4; border-radius: var(--radius-md); color: #4285F4; text-decoration: none; font-weight: 600; transition: all 0.2s;">
+                        <i class="fab fa-google"></i> Google
+                      </a>
+                      <a href="https://share.google/s40cWxPEXkNv8HFld" target="_blank" style="padding: 0.75rem 1.5rem; background: white; border: 2px solid #34A853; border-radius: var(--radius-md); color: #34A853; text-decoration: none; font-weight: 600; transition: all 0.2s;">
+                        <i class="fas fa-star"></i> Reviews
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <!-- Information Box -->
+                  <div style="margin-top: 2rem; padding: 1.5rem; background-color: #fff9e6; border-left: 4px solid #fbbf24; border-radius: var(--radius-md); text-align: left;">
+                    <p style="font-size: 0.95rem; color: #78350f; margin: 0;">
+                      <i class="fas fa-lightbulb" style="color: #fbbf24;"></i> 
+                      <strong>Note:</strong> To embed live Google reviews directly on this page, we would need to integrate the Google Places API or use a third-party review widget service. The current buttons provide direct access to all your authentic Google reviews.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
