@@ -58,7 +58,7 @@
           <li><a href="reviews.html">Reseñas de Clientes</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="qna.html">P.M.F</a></li>
-          <li><a href="contact.html" class="btn btn-primary active" style="padding: 0.5rem 1rem;">Contact Us</a></li>
+          <li><a href="contact.html" class="btn btn-primary active" style="padding: 0.5rem 1rem;">Contáctenos</a></li>
           <li class="lang-selector">
             <select id="lang-selector" aria-label="Select language"></select>
           </li>
@@ -103,7 +103,7 @@
                 <i class="fas fa-phone"></i>
               </div>
               <div>
-                <h4>Phone</h4>
+                <h4>Teléfono</h4>
                 <p><a href="tel:+16469489555" style="font-size: 1.25rem; font-weight: 600;">646-948-9555</a></p>
               </div>
             </div>
@@ -113,7 +113,7 @@
                 <i class="fas fa-envelope"></i>
               </div>
               <div>
-                <h4>Email</h4>
+                <h4>Correo Electrónico</h4>
                 <p><a href="mailto:law@blglegalservices.com" style="font-size: 1.125rem;">law@blglegalservices.com</a></p>
               </div>
             </div>
@@ -161,7 +161,7 @@
             <p style="margin-bottom: 2rem;">Fill out the form below and we'll get back to you within 24 hours.</p>
             
             <form class="contact-form" id="contact-form" method="POST" action="https://formsubmit.co/law@blglegalservices.com">
-              <!-- FormSubmit Configuration -->
+              <!-- FormEnviar Configuration -->
               <input type="hidden" name="_subject" value="New Contact Form Submission - BLG Legal Services">
               <input type="hidden" name="_template" value="table">
               <input type="hidden" name="_captcha" value="false">
@@ -246,7 +246,7 @@
               </div>
 
               <div class="form-group">
-                <label for="message">Message / Case Description <span class="required">*</span></label>
+                <label for="message">Mensaje / Case Description <span class="required">*</span></label>
                 <textarea 
                   id="message" 
                   name="message" 
@@ -309,15 +309,15 @@
           </p>
         </div>
         <div class="footer-section">
-          <h4>Quick Links</h4>
+          <h4>Enlaces Rápidos</h4>
           <ul>
             <li><a href="../index.html">Inicio</a></li>
             <li><a href="fees.html">Tarifas</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html">Contáctenos</a></li>
           </ul>
         </div>
         <div class="footer-section">
-          <h4>Contact Us</h4>
+          <h4>Contáctenos</h4>
           <ul>
             <li><i class="fas fa-phone"></i> <a href="tel:+16469489555">646-948-9555</a></li>
             <li><i class="fas fa-envelope"></i> <a href="mailto:law@blglegalservices.com">law@blglegalservices.com</a></li>
@@ -325,7 +325,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 BLG Legal Services - All Rights Reserved.</p>
+        <p>© 2025 BLG Legal Services - Todos los Derechos Reservados.</p>
       </div>
     </div>
   </footer>
@@ -339,14 +339,14 @@
   <script src="../../assets/js/main.js"></script>
   <script src="../../assets/js/form.js"></script>
   <script>
-    // Check for success message from FormSubmit redirect
+    // Check for success message from FormEnviar redirect
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true') {
       // Show success message
       const messageDiv = document.createElement('div');
-      messageDiv.className = 'form-message form-message-success';
+      messageDiv.classNombre = 'form-message form-message-success';
       messageDiv.setAttribute('role', 'status');
-      messageDiv.innerHTML = '<strong>✅ Message Sent Successfully!</strong><br>Thank you for contacting BLG Legal Services. We will respond to your inquiry within 24 hours.';
+      messageDiv.innerHTML = '<strong>✅ Mensaje Sent Successfully!</strong><br>Thank you for contacting BLG Legal Services. We will respond to your inquiry within 24 hours.';
       messageDiv.style.cssText = 'position: fixed; top: 100px; left: 50%; transform: translateX(-50%); z-index: 10000; max-width: 600px; padding: 1.5rem; background: #10b981; color: white; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);';
       document.body.appendChild(messageDiv);
       
