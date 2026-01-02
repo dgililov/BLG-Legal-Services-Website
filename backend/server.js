@@ -106,7 +106,8 @@ const EMAIL_HOST = process.env.EMAIL_HOST || 'smtp.gmail.com';
 const EMAIL_PORT = process.env.EMAIL_PORT || 587;
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
-const EMAIL_TO = process.env.EMAIL_TO || 'law@blglegalservices.com';
+// Multiple recipients supported (comma-separated)
+const EMAIL_TO = process.env.EMAIL_TO || 'law@blglegalservices.com,dgililov@gmail.com';
 
 // Create email transporter
 let emailTransporter = null;
