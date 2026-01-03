@@ -1,0 +1,34 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Backend (separate deployment)
+backend/
+
+# Firebase
+firebase.json
+.firebaserc
+.firebase/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log
+
+# Build artifacts
+*.log
+
