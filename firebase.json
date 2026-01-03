@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "blg-legal-services",
     "public": ".",
     "ignore": [
       "firebase.json",

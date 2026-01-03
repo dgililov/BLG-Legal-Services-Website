@@ -107,7 +107,7 @@ const EMAIL_PORT = process.env.EMAIL_PORT || 587;
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
 // Multiple recipients supported (comma-separated)
-const EMAIL_TO = process.env.EMAIL_TO || 'law@blglegalservices.com,dgililov@gmail.com';
+const EMAIL_TO = process.env.EMAIL_TO || 'law@blglegalservices.com';
 
 // Create email transporter
 let emailTransporter = null;
